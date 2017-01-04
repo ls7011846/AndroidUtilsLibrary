@@ -27,33 +27,28 @@ public class MD5Util {
     }
 
     /**
-     * MD5加密 生成32位md5码
-     *
-     * @param inStr 待加密字符串
-     * @return 返回32位md5码
-     * @throws Exception
+     * MD5加密
      */
-    public static String md5Encode(String inStr) throws UnsupportedEncodingException {
-        MessageDigest md5 = null;
-        try {
-            md5 = MessageDigest.getInstance("MD5");
-        } catch (Exception e) {
-            System.out.println(e.toString());
-            e.printStackTrace();
-            return "";
-        }
+    public static String encryptMD5(byte[] data) throws NoSuchAlgorithmException {
+        MessageDigest md5 = MessageDigest.getInstance("MD5");
+        md5.update(data);
+        byte[] resultBytes = md5.digest();
 
-        byte[] byteArray = inStr.getBytes("UTF-8");
-        byte[] md5Bytes = md5.digest(byteArray);
-        StringBuffer hexValue = new StringBuffer();
-        for (int i = 0; i < md5Bytes.length; i++) {
-            int val = ((int) md5Bytes[i]) & 0xff;
-            if (val < 16) {
-                hexValue.append("0");
+        String resultString = fromBytesToHex(resultBytes);
+        return resultString;
+    }
+
+    public static String fromBytesToHex(byte[] resultBytes) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < resultBytes.length; i++) {
+            if (Integer.toHexString(0xFF & resultBytes[i]).length() == 1) {
+                builder.append("0").append(
+                        Integer.toHexString(0xFF & resultBytes[i]));
+            } else {
+                builder.append(Integer.toHexString(0xFF & resultBytes[i]));
             }
-            hexValue.append(Integer.toHexString(val));
         }
-        return hexValue.toString();
+        return builder.toString();
     }
 
 }
