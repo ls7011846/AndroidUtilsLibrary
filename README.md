@@ -93,23 +93,27 @@ Android-UtilsLibrary/UtilsLibrary 为 Android Library，添加下面依赖即可
 
 ### 2.com.gc.utils.keygen
 
-	1.MD5Util
+	1.MD5Util（Message Digest，消息摘要算法）
 		MD5加密 不可逆
 		
 	2.SHAUtil
+		SHA（Secure Hash Algorithm，安全散列算法）
 		SHA-1 加密 不可逆
 	
 	3.DESUtils
+		DES（Data Encryption Standard，数据加密标准，对称加密算法）
 		生成密钥
-		DES加密（对称加密）
+		DES加密
 		DES解密
 	
 	4.TripleDESUtils
+		3DES（Triple DES、DESede，进行了三重DES加密的算法，对称加密算法）
 		生成密钥
 		3DES加密（对称加密）
 		3DES解密
 	
 	5.AESUtils
+		AES（Advanced Encryption Standard，高级数据加密标准，AES算法可以有效抵制针对DES的攻击算法，对称加密算法）
 		生成密钥
 		AES加密（对称加密）
 		AES解密
