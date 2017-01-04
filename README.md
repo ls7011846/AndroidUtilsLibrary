@@ -5,9 +5,13 @@
 
 ## Gradle
 
+Android-UtilsLibrary/UtilsLibrary 为 Android Library，添加下面依赖即可使用：
+
 	compile project(':UtilsLibrary')
 
-## 包含的工具类
+## 各个包下的工具类
+
+### 1.com.gc.utils.system
 
 	1.AppUtils
 		获取应用程序名称
@@ -45,40 +49,30 @@
 		保存Bitmap到指定目录
 		判断某目录下文件是否存在
 	
-	7.HttpUtils（HttpURLConnection）
-		异步的Get请求
-		异步的Post请求
-	
-	8.KeyBoardUtils
+	7.KeyBoardUtils
 		切换软键盘的状态，如当前为收起变为弹出,若当前为弹出变为收起
 		强制隐藏输入法键盘
 		强制显示输入法键盘
 		输入法是否显示
 	
-	9.LogUtils
+	8.LogUtils
 		调试打印Log
 	
-	10.NetUtils
-		判断网络是否连接
-		是否有网络，需要加上访问网络状态的权限
-		判断是否是WiFi网络
-		打开网络设置界面
-	
-	11.ScreenUtils
+	9.ScreenUtils
 		获得屏幕高度
 		获得屏幕宽度
 		获得状态栏的高度
 		获取当前屏幕截图，包含状态栏
 		获取当前屏幕截图，不包含状态栏
 	
-	12.SDCardUtils
+	10.SDCardUtils
 		判断SDCard是否可用
 		获取SD卡路径
 		获取SD卡的剩余容量(byte)
 		获取指定路径所在空间的剩余可用容量字节数(byte)
 		获取系统存储路径
 	
-	13.SPUtils
+	11.SPUtils
 		保存数据的方法（put方法），根据类型调用不同的保存方法
 		获取数据的方法（get方法），根据默认值得到数据的类型，然后调用对应方法获取值
 		移除某个key对应的值
@@ -86,30 +80,51 @@
 		查询某个key是否已经存在
 		返回所有的键值对
 
-	14.StringUtils
+	12.StringUtils
 		Unicode转中文
 		
-	15.ToastUtils
+	13.ToastUtils
 		短时间显示Toast
 		长时间显示Toast
 	
-	16.ViewUtils
+	14.ViewUtils
 		把自身从父View中移除
 		判断触点是否落在该View上
 
-Android-UtilsLibrary除了以上常用工具类，还提供了对一些常用开源框架的辅助工具类，如下：
-	
-## 开源框架的辅助工具类
+### 2.com.gc.utils.keygen
 
-	1.GlideUtils(Glide)：
-		Glide加载图片的时根据图片尺寸让ImageView自适应
+	1.MD5Util
+		MD5加密 不可逆
+		
+	2.SHAUtil
+		SHA-1 加密 不可逆
 	
-	2.GsonUtils(Gson)：
-		把一个map变成json字符串
-		把一个json字符串变成对象
-		把json字符串变成map
-		把json字符串变成集合
-		获取json串中某个字段的值，注意，只能获取同一层级的value
+	3.DESUtils
+		生成密钥
+		DES加密（对称加密）
+		DES解密
+	
+	4.TripleDESUtils
+		生成密钥
+		3DES加密（对称加密）
+		3DES解密
+	
+	5.AESUtils
+		生成密钥
+		AES加密（对称加密）
+		AES解密
+
+### 3.com.gc.utils.net
+
+	1.HttpUtils（HttpURLConnection）
+		异步的Get请求
+		异步的Post请求
+		
+	2.NetUtils
+		判断网络是否连接
+		是否有网络，需要加上访问网络状态的权限
+		判断是否是WiFi网络
+		打开网络设置界面
 
 ## License
     
