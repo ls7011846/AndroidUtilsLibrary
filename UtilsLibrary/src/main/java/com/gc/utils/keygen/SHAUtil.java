@@ -26,33 +26,31 @@ public class SHAUtil {
     }
 
     /**
-     * SHA-1 加密 生成40位SHA码
-     *
-     * @param inStr 待加密字符串
-     * @return 返回40位SHA码
-     * @throws Exception
+     * SHA-1 加密
+     * @param data
+     * @return
+     * @throws NoSuchAlgorithmException
      */
-    public static String shaEncode(String inStr) throws Exception {
-        MessageDigest sha = null;
-        try {
-            sha = MessageDigest.getInstance("SHA");
-        } catch (Exception e) {
-            System.out.println(e.toString());
-            e.printStackTrace();
-            return "";
-        }
+    public static String encryptSHA(byte[] data) throws NoSuchAlgorithmException {
+        MessageDigest sha = MessageDigest.getInstance("SHA-512");
+        sha.update(data);
+        byte[] resultBytes = sha.digest();
 
-        byte[] byteArray = inStr.getBytes("UTF-8");
-        byte[] md5Bytes = sha.digest(byteArray);
-        StringBuffer hexValue = new StringBuffer();
-        for (int i = 0; i < md5Bytes.length; i++) {
-            int val = ((int) md5Bytes[i]) & 0xff;
-            if (val < 16) {
-                hexValue.append("0");
+        String resultString = fromBytesToHex(resultBytes);
+        return resultString;
+    }
+
+    public static String fromBytesToHex(byte[] resultBytes) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < resultBytes.length; i++) {
+            if (Integer.toHexString(0xFF & resultBytes[i]).length() == 1) {
+                builder.append("0").append(
+                        Integer.toHexString(0xFF & resultBytes[i]));
+            } else {
+                builder.append(Integer.toHexString(0xFF & resultBytes[i]));
             }
-            hexValue.append(Integer.toHexString(val));
         }
-        return hexValue.toString();
+        return builder.toString();
     }
 
 }
