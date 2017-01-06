@@ -33,12 +33,6 @@ public class MD5Util {
         MessageDigest md5 = MessageDigest.getInstance("MD5");
         md5.update(data);
         byte[] resultBytes = md5.digest();
-
-        String resultString = fromBytesToHex(resultBytes);
-        return resultString;
-    }
-
-    public static String fromBytesToHex(byte[] resultBytes) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < resultBytes.length; i++) {
             if (Integer.toHexString(0xFF & resultBytes[i]).length() == 1) {
