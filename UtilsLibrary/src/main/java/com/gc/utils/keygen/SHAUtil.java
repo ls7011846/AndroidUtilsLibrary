@@ -35,12 +35,6 @@ public class SHAUtil {
         MessageDigest sha = MessageDigest.getInstance("SHA-512");
         sha.update(data);
         byte[] resultBytes = sha.digest();
-
-        String resultString = fromBytesToHex(resultBytes);
-        return resultString;
-    }
-
-    public static String fromBytesToHex(byte[] resultBytes) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < resultBytes.length; i++) {
             if (Integer.toHexString(0xFF & resultBytes[i]).length() == 1) {
@@ -52,5 +46,5 @@ public class SHAUtil {
         }
         return builder.toString();
     }
-
+    
 }
