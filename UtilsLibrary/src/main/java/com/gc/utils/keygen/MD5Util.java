@@ -29,7 +29,8 @@ public class MD5Util {
     /**
      * MD5加密
      */
-    public static String encryptMD5(byte[] data) throws NoSuchAlgorithmException {
+    public static String encryptMD5(String securityStr) throws NoSuchAlgorithmException {
+        byte[] data = securityStr.getBytes();
         MessageDigest md5 = MessageDigest.getInstance("MD5");
         md5.update(data);
         byte[] resultBytes = md5.digest();
