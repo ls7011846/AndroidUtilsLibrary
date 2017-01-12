@@ -1,11 +1,11 @@
-## Android-UtilsLibrary
+## AndroidUtilsLibrary
 
 	Android开发辅助工具类Library，用于快速开发，以便减少做重复的工作，提高开发效率。
 	本项目为 Android Library 工程，如需引用请下载拷贝到Project目录下，并添加Gradle依赖。
 
 ## Gradle
 
-Android-UtilsLibrary/UtilsLibrary 为 Android Library，添加下面依赖即可使用：
+AndroidUtilsLibrary/UtilsLibrary 为 Android Library，添加下面依赖即可使用：
 
 	compile project(':UtilsLibrary')
 
